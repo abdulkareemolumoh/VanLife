@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <header className="header">
       <Link to="/" className="site-logo">
-        VANLIFE
+        #VANLIFE
       </Link>
       <nav className="Nav-Items">
         <NavLink to="host">Host</NavLink>

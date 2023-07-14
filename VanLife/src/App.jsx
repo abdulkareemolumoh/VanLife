@@ -15,6 +15,7 @@ import HostVanDetails from "../pages/Host/HostVanDetails";
 import HostVanInfo from "../pages/Host/HostVanInfo";
 import HostVanPricing from "../pages/Host/HostVanPricing";
 import HostVanPhoto from "../pages/Host/HostVanPhoto";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import "../server";
 
