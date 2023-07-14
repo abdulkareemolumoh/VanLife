@@ -148,6 +148,42 @@ h3 {
 .van-type.luxury {
   background-color: #161616;
 }
+
+.van-container {
+  display: flex;
+  padding: 1rem;
+  text-decoration: none;
+  color: black;
+}
+
+.van-image {
+  width: 15rem;
+  height: 15rem;
+}
+
+.van-info {
+  display: flex;
+  flex-direction: column;
+  padding: 4rem;
+  background-color: #ffffff;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.van-info > h2 {
+  background-color: #e17654;
+  border-radius: 1rem;
+  color: white;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.Host-heading {
+  font-weight: bold;
+  text-align: left;
+  padding: 1.2rem;
+}
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
