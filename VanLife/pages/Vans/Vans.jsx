@@ -11,26 +11,24 @@ export default function Vans() {
   }, []);
 
   const vansElement = vans.map((van) => (
-    <div>
-      <Link to={`${van.id}`}>
-        <img className="van-img" src={van.imageUrl} />
-        <div className="van-name-price">
-          <h3>{van.name}</h3>
-          <h3>
-            ${van.price}
-            <br />
-            /day
-          </h3>
-        </div>
-        <h3 className={`van-type ${van.type}`}>{van.type}</h3>
-      </Link>
+    <div className="col-md-6">
+      <div className="container">
+        <Link to={`${van.id}`}>
+          <img src={van.imageUrl} className="img-fluid" />
+          <div className="text-start ">
+            <p className="text-decoration-none fs-3">{van.name}</p>
+            <p className="text-decoration-none">${van.price}/day</p>
+          </div>
+          <p className={`van-type ${van.type}`}>{van.type}</p>
+        </Link>
+      </div>
     </div>
   ));
 
   return (
     <div>
       <h1>Explore our van options</h1>
-      <div className="van-element-cta">{vansElement}</div>
+      <div className="row">{vansElement}</div>
     </div>
   );
 }
