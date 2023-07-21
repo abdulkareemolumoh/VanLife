@@ -16,7 +16,7 @@ export default function Header() {
 
   return (
     <header className="container-fluid ">
-      <div className="row fw-bold fs-5 p-2 ">
+      <div className="row fw-bold fs-5 ">
         <div className="col-5 text-start fs-2  ">
           <NavLink
             to="/"

@@ -13,11 +13,11 @@ export default function Vans() {
   const vansElement = vans.map((van) => (
     <div className="col-md-6">
       <div className="container">
-        <Link to={`${van.id}`}>
-          <img src={van.imageUrl} className="img-fluid" />
-          <div className="text-start ">
-            <p className="text-decoration-none fs-3">{van.name}</p>
-            <p className="text-decoration-none">${van.price}/day</p>
+        <Link to={`${van.id}`} className="text-decoration-none text-start text-black">
+          <img src={van.imageUrl} className="img-fluid rounded-3" />
+          <div className="pt-4">
+            <p className="fs-3 fw-bold ">{van.name}</p>
+            <p>${van.price}/day</p>
           </div>
           <p className={`van-type ${van.type}`}>{van.type}</p>
         </Link>
@@ -28,7 +28,7 @@ export default function Vans() {
   return (
     <div>
       <h1>Explore our van options</h1>
-      <div className="row">{vansElement}</div>
+      <div className="row ">{vansElement}</div>
     </div>
   );
 }
