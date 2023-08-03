@@ -35,26 +35,47 @@ export default function Vans() {
     </div>
   ));
 
+  function genUrl(key, value) {
+    const sp = new URLSearchParams(searchParams);
+    if (value === null) {
+      sp.delete(key);
+    } else {
+      sp.set(key, value);
+    }
+    return `?${sp.toString()}`;
+  }
+
+  function buttonGenUrl(key, value) {
+    setSearchParams((prevParams) => {
+      if (value === null) {
+        prevParams.delete(key);
+      } else {
+        prevParams.set(key, value);
+      }
+      return prevParams;
+    });
+  }
+
   return (
     <div>
       <h1>Explore our van options</h1>
       <div>
-        <Link to="?type=simple">Simple</Link>
-        <Link to="?type=rugged">Rugged</Link>
-        <Link to="?type=luxury">Luxury</Link>
-        <Link to=".">Clear Filters</Link>
+        <Link to={genUrl("type", "simple")}>Simple</Link>
+        <Link to={genUrl("type", "rugged")}>Rugged</Link>
+        <Link to={genUrl("type", "luxury")}>Luxury</Link>
+        {typeFilter ? (
+          <Link to={genUrl("type", null)}>Clear Filters</Link>
+        ) : null}
       </div>
       <div>
-        <button onClick={() => setSearchParams({ type: "simple" })}>
-          Simple
-        </button>
-        <button onClick={() => setSearchParams({ type: "rugged" })}>
-          Rugged
-        </button>
-        <button onClick={() => setSearchParams({ type: "luxury" })}>
-          Luxury
-        </button>
-        <button onClick={() => setSearchParams({})}>Clear Filters</button>
+        <button onClick={() => buttonGenUrl("type", "simple")}>Simple</button>
+        <button onClick={() => buttonGenUrl("type", "rugged")}>Rugged</button>
+        <button onClick={() => buttonGenUrl("type", "luxury")}>Luxury</button>
+        {typeFilter ? (
+          <button onClick={() => buttonGenUrl("type", null)}>
+            Clear Filters
+          </button>
+        ) : null}
       </div>
       <div className="row ">{vansElement}</div>
     </div>
