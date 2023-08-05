@@ -5,7 +5,7 @@ export default function HostNavBar() {
   const activeStyle = {
     fontWeight: "bold",
     textDecoration: "underline",
-    color: "black",
+    color: "green",
   };
 
   const notActiveStyle = {
@@ -13,7 +13,7 @@ export default function HostNavBar() {
     textDecoration: "none",
     color: "black",
   };
-  
+
   return (
     <div>
       <div className="container text-center">

@@ -19,6 +19,7 @@ export default function HostVan() {
       </div>
     </Link>
   ));
+
   return (
     <div>
       <h1 className="Host-heading">Your listed vans</h1>

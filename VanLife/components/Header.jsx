@@ -5,7 +5,7 @@ export default function Header() {
   const activeStyle = {
     fontWeight: "bold",
     textDecoration: "underline",
-    color: "black",
+    color: "blue",
   };
 
   const notActiveStyle = {
