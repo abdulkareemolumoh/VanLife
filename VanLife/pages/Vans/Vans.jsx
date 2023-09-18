@@ -1,17 +1,30 @@
-import React, { useEffect, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import React from "react";
+import { Link, useSearchParams, useLoaderData } from "react-router-dom";
+import { getVans } from "../../api";
+
+export function loader() {
+  return getVans();
+}
 
 export default function Vans() {
-  const [vans, setVans] = useState([]);
+  // const [vans, setVans] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
+  const vans = useLoaderData();
 
   const typeFilter = searchParams.get("type");
 
-  useEffect(() => {
-    fetch("/api/vans")
-      .then((res) => res.json())
-      .then((data) => setVans(data.vans));
-  }, []);
+  // implemented another way of fetching data by creating a seprate Component (api.jsx) and importing the async function here
+  // fetch("/api/vans")
+  //   .then((res) => res.json())
+  //   .then((data) => setVans(data.vans));
+  // useEffect(() => {
+  //   async function loadVans() {
+  //     const data = await getVans();
+  //     setVans(data);
+  //   }
+  //   loadVans();
+
+  // }, []);
 
   const dispalyedVans = typeFilter
     ? vans.filter((van) => van.type === typeFilter)
