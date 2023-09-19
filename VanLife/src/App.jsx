@@ -9,9 +9,11 @@ import {
 import Layout from "../components/Layout";
 import HostNavBar from "../components/HostNavBar";
 import Error from "../components/Error";
-import About from "../pages/About/About";
+import About from "../pages/About";
 import Vans, { loader as vanLoader } from "../pages/Vans/Vans";
-import VanDetails from "../pages/Vans/VanDetails";
+import VanDetails, {
+  loader as VanDetailsLoader,
+} from "../pages/Vans/VanDetails";
 import Home from "../pages/Home";
 import Dashboard from "../pages/Host/Dashboard";
 import Income from "../pages/Host/Income";
@@ -21,6 +23,7 @@ import HostVanDetails from "../pages/Host/HostVanDetails";
 import HostVanInfo from "../pages/Host/HostVanInfo";
 import HostVanPricing from "../pages/Host/HostVanPricing";
 import HostVanPhoto from "../pages/Host/HostVanPhoto";
+import Login from "../pages/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../server";
 
@@ -36,7 +39,12 @@ const router = createBrowserRouter(
         loader={vanLoader}
         errorElement={<Error />}
       />
-      <Route path="vans/:id" element={<VanDetails />} />
+      <Route path="login" element={<Login />} />
+      <Route
+        path="vans/:id"
+        element={<VanDetails />}
+        loader={VanDetailsLoader}
+      />
 
       <Route path="host" element={<HostNavBar />}>
         <Route index element={<Dashboard />} />

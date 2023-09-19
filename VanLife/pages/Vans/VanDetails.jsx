@@ -1,16 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLoaderData } from "react-router-dom";
+import { getVans } from "../../api";
+
+export function loader({ params }) {
+  return getVans(params.id);
+}
 
 export default function VanDetails() {
   const { id } = useParams();
   const [van, setVan] = useState(null);
-
+  const data = useLoaderData();
+  console.log(data);
   useEffect(() => {
     fetch(`/api/vans/${id}`)
       .then((res) => res.json())
       .then((data) => setVan(data.vans));
   }, [id]);
 
+  // console.log(van);
   return (
     <div className="container-fluid card">
       <Link to=".." relative="path">
