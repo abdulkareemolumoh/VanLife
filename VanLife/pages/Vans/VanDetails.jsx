@@ -10,7 +10,9 @@ export default function VanDetails() {
   const { id } = useParams();
   const [van, setVan] = useState(null);
   const data = useLoaderData();
+  
   console.log(data);
+
   useEffect(() => {
     fetch(`/api/vans/${id}`)
       .then((res) => res.json())
