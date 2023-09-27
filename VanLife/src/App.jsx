@@ -71,31 +71,36 @@ function App() {
   return (
     <div>
       <RouterProvider router={router} />
-      {/* Using BrowserRouter for rendering instead the BrowserRouter */}
-      {/* <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route path="vans" element={<Vans />} />
-            <Route path="vans/:id" element={<VanDetails />} />
-
-            <Route path="host" element={<HostNavBar />}>
-              <Route index element={<Dashboard />} />
-              <Route path="income" element={<Income />} />
-              <Route path="reviews" element={<Reviews />} />
-              <Route path="vans" element={<HostVan />} />
-              <Route path="vans/:id" element={<HostVanDetails />}>
-                <Route index element={<HostVanInfo />} />
-                <Route path="pricing" element={<HostVanPricing />} />
-                <Route path="photo" element={<HostVanPhoto />} />
-              </Route>
-            </Route>
-          </Route>
-        </Routes>
-      </BrowserRouter> */}
     </div>
   );
 }
 
 export default App;
+
+{
+  /* Using BrowserRouter for rendering instead the BrowserRouter */
+}
+{
+  /* <BrowserRouter>
+  <Routes>
+    <Route path="/" element={<Layout />}>
+      <Route index element={<Home />} />
+      <Route path="about" element={<About />} />
+      <Route path="vans" element={<Vans />} />
+      <Route path="vans/:id" element={<VanDetails />} />
+
+      <Route path="host" element={<HostNavBar />}>
+        <Route index element={<Dashboard />} />
+        <Route path="income" element={<Income />} />
+        <Route path="reviews" element={<Reviews />} />
+        <Route path="vans" element={<HostVan />} />
+        <Route path="vans/:id" element={<HostVanDetails />}>
+          <Route index element={<HostVanInfo />} />
+          <Route path="pricing" element={<HostVanPricing />} />
+          <Route path="photo" element={<HostVanPhoto />} />
+        </Route>
+      </Route>
+    </Route>
+  </Routes>
+</BrowserRouter> */
+}
