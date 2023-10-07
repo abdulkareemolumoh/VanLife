@@ -1,10 +1,5 @@
-import React from "react";
 import { Link, useSearchParams, useLoaderData } from "react-router-dom";
-import { getVans } from "../../api";
 
-export function loader() {
-  return getVans();
-}
 
 export default function Vans() {
   // const [vans, setVans] = useState([]);
@@ -31,7 +26,7 @@ export default function Vans() {
     : vans;
 
   const vansElement = dispalyedVans.map((van) => (
-    <div className="col-md-6">
+    <div className="col-md-6" key={van.id}>
       <div className="container">
         <Link
           to={`${van.id}`}

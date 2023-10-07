@@ -1,1 +1,1 @@
-MY VanLife App
+My vanLife App

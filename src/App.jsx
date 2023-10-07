@@ -1,4 +1,3 @@
-import React from "react";
 import "./App.css";
 import {
   createBrowserRouter,
@@ -10,7 +9,8 @@ import Layout from "../components/Layout";
 import HostNavBar from "../components/HostNavBar";
 import Error from "../components/Error";
 import About from "../pages/About";
-import Vans, { loader as vanLoader } from "../pages/Vans/Vans";
+import Vans from "../pages/Vans/Vans";
+import { vanLoader } from "../Loader";
 import VanDetails, {
   loader as VanDetailsLoader,
 } from "../pages/Vans/VanDetails";
@@ -19,9 +19,8 @@ import Dashboard from "../pages/Host/Dashboard";
 import Income from "../pages/Host/Income";
 import Reviews from "../pages/Host/Reviews";
 import HostVan, { loader as hostVanLoader } from "../pages/Host/HostVan";
-import HostVanDetails, {
-  loader as hostVanDetailsLoader,
-} from "../pages/Host/HostVanDetails";
+import HostVanDetails from "../pages/Host/HostVanDetails";
+import { hostVanDetailsLoader } from "../Loader";
 import HostVanInfo from "../pages/Host/HostVanInfo";
 import HostVanPricing from "../pages/Host/HostVanPricing";
 import HostVanPhoto from "../pages/Host/HostVanPhoto";
