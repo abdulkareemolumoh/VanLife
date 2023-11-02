@@ -1,10 +1,4 @@
-import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import { getHostVans } from "../../api";
-
-export function loader() {
-  return getHostVans();
-}
 
 export default function HostVan() {
   const vans = useLoaderData();

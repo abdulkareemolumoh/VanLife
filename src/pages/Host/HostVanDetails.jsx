@@ -1,6 +1,5 @@
 import { Link, Outlet, useLoaderData } from "react-router-dom";
 
-
 export default function HostVanDetails() {
   const currentVan = useLoaderData();
 
