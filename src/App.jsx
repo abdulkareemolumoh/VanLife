@@ -28,7 +28,10 @@ import HostVanDetails from "./pages/Host/HostVanDetails";
 import HostVanInfo from "./pages/Host/HostVanInfo";
 import HostVanPricing from "./pages/Host/HostVanPricing";
 import HostVanPhoto from "./pages/Host/HostVanPhoto";
-import Login from "./pages/Login";
+import Login, {
+  loader as loginLoader,
+  action as loginAction,
+} from "./pages/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./server";
 
@@ -38,7 +41,12 @@ const router = createBrowserRouter(
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
       <Route path="about" element={<About />} />
-      <Route path="login" element={<Login />} />
+      <Route
+        path="login"
+        element={<Login />}
+        loader={loginLoader}
+        action={loginAction}
+      />
       <Route
         path="vans"
         element={<Vans />}
