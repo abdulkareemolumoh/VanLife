@@ -4,22 +4,28 @@ export default function HostVanDetails() {
   const currentVan = useLoaderData();
 
   return (
-    <section>
-      <Link to=".." relative="path">
+    <section className="page-section host-van-details">
+      <Link to=".." relative="path" className="btn btn-ghost">
         &larr; Back to all vans
       </Link>
-      <div className="van-container">
-        <img src={currentVan.imageUrl} className="van-image" />
-        <div className="van-info">
-          <h2>{currentVan.type}</h2>
-          <h3>{currentVan.name}</h3>
-          <h4>${currentVan.price}/day</h4>
+      <div className="host-van-card card-panel">
+        <img src={currentVan.imageUrl} alt={currentVan.name} />
+        <div>
+          <p className={`van-type ${currentVan.type}`}>{currentVan.type}</p>
+          <h2>{currentVan.name}</h2>
+          <p className="van-price">${currentVan.price}/day</p>
         </div>
       </div>
-      <nav>
-        <Link to=".">Details</Link>
-        <Link to="pricing">Pricing</Link>
-        <Link to="photo">Photos</Link>
+      <nav className="detail-nav">
+        <Link to="." end className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
+          Details
+        </Link>
+        <Link to="pricing" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
+          Pricing
+        </Link>
+        <Link to="photo" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
+          Photos
+        </Link>
       </nav>
       <Outlet context={{ currentVan }} />
     </section>

@@ -5,9 +5,9 @@ import { Outlet } from "react-router-dom";
 
 export default function Layout() {
   return (
-    <div>
+    <div className="app-shell">
       <Header />
-      <main>
+      <main className="page-main">
         <Outlet />
       </main>
       <Footer />

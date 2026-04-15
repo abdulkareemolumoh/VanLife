@@ -2,65 +2,22 @@ import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 
 export default function HostNavBar() {
-  const activeStyle = {
-    fontWeight: "bold",
-    textDecoration: "underline",
-    color: "green",
-  };
-
-  const notActiveStyle = {
-    fontWeight: "bold",
-    textDecoration: "none",
-    color: "black",
-  };
-
   return (
-    <div>
-      <div className="container text-center">
-        <div className="row fw-bold">
-          <div className="col fs-5 ">
-            <NavLink
-              to="."
-              end
-              style={({ isActive }) =>
-                isActive ? activeStyle : notActiveStyle
-              }
-            >
-              Dashboard
-            </NavLink>
-          </div>
-          <div className="col fs-5 ">
-            <NavLink
-              to="income"
-              style={({ isActive }) =>
-                isActive ? activeStyle : notActiveStyle
-              }
-            >
-              Income
-            </NavLink>
-          </div>
-          <div className="col fs-5 ">
-            <NavLink
-              to="vans"
-              style={({ isActive }) =>
-                isActive ? activeStyle : notActiveStyle
-              }
-            >
-              Vans
-            </NavLink>
-          </div>
-          <div className="col fs-5 ">
-            <NavLink
-              to="reviews"
-              style={({ isActive }) =>
-                isActive ? activeStyle : notActiveStyle
-              }
-            >
-              Reviews
-            </NavLink>
-          </div>
-        </div>
-      </div>
+    <div className="page-section">
+      <nav className="host-nav">
+        <NavLink end to="." className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
+          Dashboard
+        </NavLink>
+        <NavLink to="income" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
+          Income
+        </NavLink>
+        <NavLink to="vans" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
+          Vans
+        </NavLink>
+        <NavLink to="reviews" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
+          Reviews
+        </NavLink>
+      </nav>
       <Outlet />
     </div>
   );

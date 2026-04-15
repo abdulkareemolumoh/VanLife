@@ -1,30 +1,30 @@
 import { Link, useSearchParams, useLoaderData } from "react-router-dom";
 
+const FILTER_TYPES = ["simple", "rugged", "luxury"];
+
 export default function Vans() {
   const [searchParams, setSearchParams] = useSearchParams();
   const vans = useLoaderData();
 
   const typeFilter = searchParams.get("type");
 
-  const dispalyedVans = typeFilter
+  const displayedVans = typeFilter
     ? vans.filter((van) => van.type === typeFilter)
     : vans;
 
-  const vansElement = dispalyedVans.map((van) => (
+  const vansElement = displayedVans.map((van) => (
     <div className="col-md-6" key={van.id}>
-      <div className="container">
-        <Link
-          to={`${van.id}`}
-          className="text-decoration-none text-start text-black"
-        >
-          <img src={van.imageUrl} className="img-fluid rounded-3" />
-          <div className="pt-4">
-            <p className="fs-3 fw-bold ">{van.name}</p>
-            <p>${van.price}/day</p>
-          </div>
-          <p className={`van-type ${van.type}`}>{van.type}</p>
-        </Link>
-      </div>
+      <Link
+        to={`${van.id}`}
+        className="van-card text-decoration-none text-black"
+      >
+        <img src={van.imageUrl} alt={van.name} />
+        <div>
+          <p className="van-title">{van.name}</p>
+          <p className="van-price">${van.price}/day</p>
+        </div>
+        <p className={`van-type ${van.type}`}>{van.type}</p>
+      </Link>
     </div>
   ));
 
@@ -40,37 +40,38 @@ export default function Vans() {
 
   function buttonGenUrl(key, value) {
     setSearchParams((prevParams) => {
+      const sp = new URLSearchParams(prevParams);
       if (value === null) {
-        prevParams.delete(key);
+        sp.delete(key);
       } else {
-        prevParams.set(key, value);
+        sp.set(key, value);
       }
-      return prevParams;
+      return sp;
     });
   }
 
   return (
-    <div>
-      <h1>Explore our van options</h1>
-      <div>
-        <Link to={genUrl("type", "simple")}>Simple</Link>
-        <Link to={genUrl("type", "rugged")}>Rugged</Link>
-        <Link to={genUrl("type", "luxury")}>Luxury</Link>
+    <section className="page-section">
+      <div className="section-title">Explore our van options</div>
+      <div className="filter-bar">
+        {FILTER_TYPES.map((type) => (
+          <Link
+            key={type}
+            to={genUrl("type", type)}
+            className={`chip ${type} ${typeFilter === type ? "active" : ""}`}
+          >
+            {type[0].toUpperCase() + type.slice(1)}
+          </Link>
+        ))}
+
         {typeFilter ? (
-          <Link to={genUrl("type", null)}>Clear Filters</Link>
-        ) : null}
-      </div>
-      <div>
-        <button onClick={() => buttonGenUrl("type", "simple")}>Simple</button>
-        <button onClick={() => buttonGenUrl("type", "rugged")}>Rugged</button>
-        <button onClick={() => buttonGenUrl("type", "luxury")}>Luxury</button>
-        {typeFilter ? (
-          <button onClick={() => buttonGenUrl("type", null)}>
-            Clear Filters
+          <button type="button" className="clear-chip" onClick={() => buttonGenUrl("type", null)}>
+            Clear filters
           </button>
         ) : null}
       </div>
-      <div className="row ">{vansElement}</div>
-    </div>
+
+      <div className="row gy-4">{vansElement}</div>
+    </section>
   );
 }
